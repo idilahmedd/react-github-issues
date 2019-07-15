@@ -11,7 +11,6 @@ const LandingPage = props => (
         <div>
             <Link className="foo" to="/issues"><button>Go to Issues</button></Link>
         </div>
-
     </>
 )
 

@@ -27,16 +27,6 @@ class App extends React.Component {
                 })
             })
     }
-    // componentDidMount(){
-    //     axios.get('https://api.kanye.rest/').then(result => {
-    //       console.log(result)
-    //       let quote = result.data.quote;
-    //       this.setState({
-    //         quote
-    //       })
-    //     })
-    //   }
-
     render() {
         return (
             <Router>
