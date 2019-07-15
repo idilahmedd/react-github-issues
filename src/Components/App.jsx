@@ -21,11 +21,11 @@ class App extends React.Component {
     componentDidMount() {
         console.log('component did mount')
         axios.get('https://api.github.com/repos/facebook/react/issues?page=1&per_page=10')
-        .then(result => {
-            this.setState({
-                issues: result.data
+            .then(result => {
+                this.setState({
+                    issues: result.data
+                })
             })
-        })
     }
     // componentDidMount(){
     //     axios.get('https://api.kanye.rest/').then(result => {
@@ -36,20 +36,40 @@ class App extends React.Component {
     //       })
     //     })
     //   }
-    
+
     render() {
         return (
             <Router>
                 <nav className="nav">
-                    <Link to="/">HOME</Link>{' '}
-                    <Link to="/issues">ISSUES</Link>{' '}
-                    
+                    <img src="https://image.flaticon.com/icons/svg/25/25231.svg"></img>
+                    <Link style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        margin: '5px',
+                        padding: '5px'
+                    }}
+                        to="/">Home</Link>{' '}
+                    <input placeholder="Search"></input>
+                    <Link style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        margin: '5px',
+                        padding: '5px'
+                    }}
+                        to="/issues">Issues</Link>{' '}
+                    <Link style={{
+                        textDecoration: 'none',
+                        color: 'white',
+                        margin: '5px',
+                        padding: '5px'
+                    }}
+                        to="/">Pull Requests</Link>{' '}
                 </nav>
                 <Route exact path='/' component={LandingPage} />
                 <Route exact path='/issues'
-                    render={ props => <IssuesPage issues={this.state.issues} {...props} />} />
+                    render={props => <IssuesPage issues={this.state.issues} {...props} />} />
                 <Route path='/issues/:id'
-                    render={ props => <ShowIssuePage issues={this.state.issues} {...props} />} />
+                    render={props => <ShowIssuePage issues={this.state.issues} {...props} />} />
             </Router>
         );
     }
